@@ -1,71 +1,90 @@
-<!doctype html>
-<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
-<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
+<!DOCTYPE html>
+
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Refresh" Content="10; ./welcome.html">
 
-  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
-  <link rel="stylesheet" href="stylesheets/github-dark.css">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="javascripts/script.js"></script>
-
-  <title>Xiaklsjkl.GitHub.io</title>
-  <meta name="description" content="text">
-
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
+<title>The ZhiSheng's Website</title>
+<style type="text/css">
+    canvas {display: block;}
+	html
+	{
+	background:black;
+	margin:0px;
+	padding:0px;
+	border:0px;
+	height:100%;
+	width:100%;
+	overflow:hidden;
+	}
+</style>
 </head>
-
 <body>
+  <canvas id="c">
+  <script type="text/javascript">
+		window.onload=function()
+		{
+			var c = document.getElementById("c");
+			var ctx = c.getContext("2d");
 
-  <div class="wrapper">
-    <header>
-    </header>
-	ÖØÇì¿ª·¢Æ±°¡°¡°¡<div id="container">
-      <p class="tagline">ÖØÇì¿ª·¢Æ± ÖØÇì¿ª·¢Æ±°¡°¡°¡&nbsp;&nbsp;&nbsp; ÖØÇì¿ª·¢Æ±°¡°¡°¡</p>
-      <div id="main" role="main">
-        <div class="download-bar">
-        <div class="inner">
-          ÖØÇì¿ª·¢Æ±<a href="https://github.com/xiaklsjkl" class="code"></a>
-        </div>
-        <span class="blc"></span><span class="trc"></span>
-        </div>
-        <article class="markdown-body">
-          <h3>
-ÖØÇì¿ª·¢Æ±</h3>
+			c.addEventListener('click', function(e)
+			{
+				location.href="./welcome.html";
+			}, false);
 
-<p>ÖØÇì¿ª·¢Æ±°¡°¡°¡</p>
+			//å…¨å±æ˜¾ç¤º
+			c.height = window.innerHeight;
+			c.width = window.innerWidth;
 
-<h3>
-ÖØÇì¿ª·¢Æ±°¡°¡°¡</h3>
+			var txts = "052ã‚7B8ã„ç”˜GANEå£«CHENGæˆã†1ãˆ9ãŠç”˜ã‹ãå£«ãã‘ã“æˆEFCADGç”˜HIJKå£«LMNOæˆPQRSTUç”˜VWXYZEå£«FCADGHæˆIJKLM";
+			txts = txts.split("");
 
-<p>ÖØÇì¿ª·¢Æ±°¡°¡°¡</p>
+			var font_size = 28;
+			var columns = c.width/font_size;
 
-<h3>
-ÖØÇì¿ª·¢Æ±°¡°¡°¡</h3>
+			//æ¯è¡Œè¦è¾“å‡ºæ•°ç»„
+			var drops = [];
 
-<p>ÖØÇì¿ª·¢Æ±°¡°¡°¡</p>
+			for(var x = 0; x < columns; x++)
+				drops[x] = 1;
 
-		ÖØÇì¿ª·¢Æ±°¡°¡°¡ÖØÇì¿ª·¢Æ±°¡°¡°¡</article>ÖØÇì¿ª·¢Æ±°¡°¡°¡</div>
-    </div>
-    <footer>
-      <div class="owner">
+			//å­—ç¬¦éšæœºé¢œè‰²
+			var wh_color = new Array();
+			wh_color[0]="#57CE13";
+			wh_color[1]="#50BF7F";
+			wh_color[2]="#50BF7F";
 
-      <p>ÖØÇì¿ª·¢Æ±°¡°¡°¡</p>
+			//ç»˜å‡ºå­—ç¬¦
+			function draw()
+			{
+				//é»‘è‰²èƒŒæ™¯ï¼ŒåŠé€æ˜æ˜¾ç¤º
+				ctx.fillStyle = "rgba(0, 0, 0, 0.09)";
+				ctx.fillRect(0, 0, c.width, c.height);
 
-      </div>
-      <div class="creds">
-        ÖØÇì¿ª·¢Æ±°¡°¡°¡</div>
-    </footer>
-  </div>
-  <div class="current-section">
-    <a href="#top">Scroll to top</a>
-    <a href="https://github.com/xiaklsjkl/xiaklsjkl.github.io/tarball/master" class="tar">tar</a><a href="https://github.com/xiaklsjkl/xiaklsjkl.github.io/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
-    <p class="name"></p>
-  </div>
+				//ctx.fillStyle = "#50BF7F";
+				ctx.fillStyle = wh_color[parseInt(Math.random()*100+1)%3];
+				ctx.font = font_size + "px arial";
 
-  
+				//dropså¾ªç¯
+				for(var i = 0; i < drops.length; i++)
+				{
+					//éšæœºæ‰“å°å­—ç¬¦
+					var text = txts[Math.floor(Math.random()*txts.length)];
+
+					//x = i*font_size
+					//y = value of drops[i]*font_size
+					ctx.fillText(text, i*font_size, drops[i]*font_size);
+
+					if(drops[i]*font_size > c.height || Math.random() > 0.95)
+						drops[i] = 0;
+
+					//Yåæ ‡å¢åŠ 
+					drops[i]++;
+				}
+			}
+			setInterval(draw, 50);
+		}
+</script>
 </body>
 </html>
